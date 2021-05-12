@@ -4,7 +4,7 @@ function Contact(props) {
   const { contact, setWhichChatToShow } = props;
   return (
     <div
-      className="card-panel"
+      className="card-panel waves-effect waves-purple"
       id="contactCard"
       onClick={() => {
         setWhichChatToShow(contact);

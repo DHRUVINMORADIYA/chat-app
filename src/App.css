@@ -54,7 +54,7 @@
 }
 
 #chatCardChild {
-  height: 71vh;
+  height: 58vh;
 }
 
 #body {
@@ -63,7 +63,7 @@
 
 #contactsHeader,
 #chatsHeader {
-  margin-bottom: 25px;
+  margin-bottom: 27px;
 }
 
 .input-field input:focus + label {
@@ -77,4 +77,32 @@
 
 #contactCard {
   cursor: pointer;
+}
+
+#messageReceived {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#messageSent {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card.left-align {
+  max-width: 400px;
+  width: fit-content;
+  overflow-wrap: break-word;
+}
+
+#messageSentCard {
+  max-width: 400px;
+  width: fit-content;
+  overflow-wrap: break-word;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.chatCardChild {
+  padding-bottom: 20px;
 }

@@ -37,36 +37,45 @@ function ChatBox(props) {
     setMessageToSendFromInputBox("");
   };
 
+  useEffect(() => {
+    var element = document.getElementById("chatCardChild");
+    if (element) element.scrollTop = element.scrollHeight;
+  });
+
   return (
-    <div className="card" id="chatCardChild">
+    <div className="card">
       <div className="card-content">
-        {messages &&
-          messages.map((message, index) =>
-            message.type === "sent" ? (
-              <MessageSent key={index} message={message} />
-            ) : (
-              <MessageRecieved key={index} message={message} />
-            )
-          )}
-        <div className="input-field inline col s10">
-          <input
-            className="active"
-            id="message"
-            type="text"
-            value={messageToSendFromInputBox}
-            onChange={(e) => setMessageToSendFromInputBox(e.target.value)}
-          />
-          <label htmlFor="message">Type...</label>
+        <div id="chatCardChild">
+          {messages &&
+            messages.map((message, index) =>
+              message.type === "sent" ? (
+                <MessageSent key={index} message={message} />
+              ) : (
+                <MessageRecieved key={index} message={message} />
+              )
+            )}
         </div>
-        <button
-          className="btn waves-effect waves-light purple lighten-1"
-          type="submit"
-          name="action"
-          onClick={handleSend}
-        >
-          Send
-          <i className="material-icons right">send</i>
-        </button>
+        <div className="inputBoxAndButton">
+          <div className="input-field inline col s10">
+            <input
+              className="active"
+              id="message"
+              type="text"
+              value={messageToSendFromInputBox}
+              onChange={(e) => setMessageToSendFromInputBox(e.target.value)}
+            />
+            <label htmlFor="message">Type...</label>
+          </div>
+          <button
+            className="btn waves-effect waves-light purple lighten-1"
+            type="submit"
+            name="action"
+            onClick={handleSend}
+          >
+            Send
+            <i className="material-icons right">send</i>
+          </button>
+        </div>
       </div>
     </div>
   );
