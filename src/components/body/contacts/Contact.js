@@ -1,8 +1,15 @@
 import React from "react";
 
-function Contact() {
+function Contact(props) {
+  const { contact, setWhichChatToShow } = props;
   return (
-    <div className="card-panel">
+    <div
+      className="card-panel"
+      id="contactCard"
+      onClick={() => {
+        setWhichChatToShow(contact);
+      }}
+    >
       <div className="row valign-wrapper">
         <div className="col s3 valign-wrapper">
           <img
@@ -12,7 +19,9 @@ function Contact() {
           />
         </div>
         <div className="col s9">
-          <span className="black-text left">contact name</span>
+          <span className="black-text left">
+            {contact.firstName} {contact.lastName}
+          </span>
         </div>
       </div>
     </div>

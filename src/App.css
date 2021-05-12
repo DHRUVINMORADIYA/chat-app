@@ -66,18 +66,15 @@
   margin-bottom: 25px;
 }
 
-#messageReceived {
-  width: 100px;
-}
-#messageSent {
-}
-
-/* label focus color */
 .input-field input:focus + label {
   color: #ab47bc !important;
 }
-/* label underline focus color */
+
 .row .input-field input:focus {
   border-bottom: 1px solid #ab47bc !important;
   box-shadow: 0 1px 0 0 #ab47bc !important;
+}
+
+#contactCard {
+  cursor: pointer;
 }

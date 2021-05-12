@@ -1,7 +1,8 @@
 import React from "react";
 import ChatBox from "./ChatBox";
 
-function Chat() {
+function Chat(props) {
+  const { profile, whichChatToShow } = props;
   return (
     <div className="card purple lighten-5" id="chatCard">
       <div className="card-content">
@@ -14,10 +15,12 @@ function Chat() {
             />
           </div>
           <div className="col s11">
-            <span className="black-text left">contact name</span>
+            <span className="black-text left">
+              {whichChatToShow.firstName} {whichChatToShow.lastName}
+            </span>
           </div>
         </div>
-        <ChatBox />
+        <ChatBox whichChatToShow={whichChatToShow} profile={profile} />
       </div>
     </div>
   );
