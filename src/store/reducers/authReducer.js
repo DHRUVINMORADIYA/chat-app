@@ -36,30 +36,6 @@ const authReducer = (state = initState, action) => {
         authError: action.err.message,
       };
 
-    case "MESSAGE_SENT_SUCCESSFULLY":
-      console.log("message sent successfully");
-      return {
-        ...state,
-      };
-
-    case "MESSAGE_SENT_ERROR":
-      console.log("message sent error");
-      return {
-        ...state,
-      };
-
-    case "MESSAGE_RECEIVED_SUCCESSFULLY":
-      console.log("message received successfully");
-      return {
-        ...state,
-      };
-
-    case "MESSAGE_RECEIVED_ERROR":
-      console.log("message received error");
-      return {
-        ...state,
-      };
-
     default:
       return state;
   }

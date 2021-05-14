@@ -28,13 +28,15 @@ function ChatBox(props) {
 
   const handleSend = (e) => {
     e.preventDefault();
-    const tosend = {
-      From: From,
-      To: whichChatToShow.ID,
-      content: messageToSendFromInputBox,
-    };
-    props.sendMessage(tosend);
-    setMessageToSendFromInputBox("");
+    if (messageToSendFromInputBox.length > 0) {
+      const tosend = {
+        From: From,
+        To: whichChatToShow.ID,
+        content: messageToSendFromInputBox,
+      };
+      props.sendMessage(tosend);
+      setMessageToSendFromInputBox("");
+    }
   };
 
   useEffect(() => {
@@ -43,18 +45,16 @@ function ChatBox(props) {
   });
 
   return (
-    <div className="card">
+    <div className="card" id="chatCardChild">
       <div className="card-content">
-        <div id="chatCardChild">
-          {messages &&
-            messages.map((message, index) =>
-              message.type === "sent" ? (
-                <MessageSent key={index} message={message} />
-              ) : (
-                <MessageRecieved key={index} message={message} />
-              )
-            )}
-        </div>
+        {messages &&
+          messages.map((message, index) =>
+            message.type === "sent" ? (
+              <MessageSent key={index} message={message} />
+            ) : (
+              <MessageRecieved key={index} message={message} />
+            )
+          )}
         <div className="inputBoxAndButton">
           <div className="input-field inline col s10">
             <input

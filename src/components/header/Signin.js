@@ -25,20 +25,20 @@ class Signin extends Component {
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container left-align">
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Sign In</h5>
+        <h5 className="grey-text text-darken-3">Sign In</h5>
+        <form className="white" id="signInForm" onSubmit={this.handleSubmit}>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
             <input type="email" id="email" onChange={this.handleChange} />
+            <label htmlFor="email">Email</label>
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
               onChange={this.handleChange}
               autoComplete="on"
             />
+            <label htmlFor="password">Password</label>
           </div>
           <div className="input-field">
             <button className="btn purple lighten-1 z-depth-0">Login</button>
