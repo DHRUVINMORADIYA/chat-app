@@ -43,7 +43,3 @@ export const sendMessage = (props) => {
       });
   };
 };
-
-export const acceptInvite = (props) => {
-  return (dispatch) => dispatch({ type: "success" });
-};

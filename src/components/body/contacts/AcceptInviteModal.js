@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { connect } from "react-redux";
-import { acceptInvite } from "../../../store/actions/otherActions";
+//import { acceptInvite } from "../../../store/actions/otherActions";
 
 function AcceptInviteModal(props) {
   const { isAcceptInviteModalOpen, acceptInvite, error, uid } = props;
@@ -8,11 +8,11 @@ function AcceptInviteModal(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const toSend = {
-      acceptedBy: uid,
-      acceptedUser: ID,
-    };
-    acceptInvite(toSend);
+    // const toSend = {
+    //   acceptedBy: uid,
+    //   acceptedUser: ID,
+    // };
+    // acceptInvite(toSend);
     setID("");
   };
   if (isAcceptInviteModalOpen) {
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    acceptInvite: (toSend) => dispatch(acceptInvite(toSend)),
+    //acceptInvite: (toSend) => dispatch(acceptInvite(toSend)),
   };
 };
 
