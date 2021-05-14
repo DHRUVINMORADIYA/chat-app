@@ -45,3 +45,5 @@ const otherReducer = (state = initState, action) => {
       return state;
   }
 };
+
+export default otherReducer;
