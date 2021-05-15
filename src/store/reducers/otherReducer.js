@@ -1,6 +1,4 @@
-const initState = {
-  authError: null,
-};
+const initState = {};
 
 const otherReducer = (state = initState, action) => {
   switch (action.type) {
@@ -38,7 +36,7 @@ const otherReducer = (state = initState, action) => {
       console.log("invite unsuccessaful");
       return {
         ...state,
-        error: action.err.message,
+        error: action.err ? action.err.message : null,
       };
 
     default:

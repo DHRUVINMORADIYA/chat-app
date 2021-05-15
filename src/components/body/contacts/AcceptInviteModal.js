@@ -1,13 +1,18 @@
 import { React, useState } from "react";
-//import { connect } from "react-redux";
-//import { acceptInvite } from "../../../store/actions/otherActions";
+import { connect } from "react-redux";
+import { acceptInvite } from "../../../store/actions/otherActions";
 
 function AcceptInviteModal(props) {
-  const { isAcceptInviteModalOpen, error } = props;
+  const { isAcceptInviteModalOpen, error, uid, acceptInvite } = props;
   const [ID, setID] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const toSend = {
+      acceptedBy: uid,
+      acceptedUser: ID,
+    };
+    acceptInvite(toSend);
     setID("");
   };
   if (isAcceptInviteModalOpen) {
@@ -39,4 +44,14 @@ function AcceptInviteModal(props) {
   }
 }
 
-export default AcceptInviteModal;
+const mapStateToProps = (state) => {
+  return { uid: state.firebase.auth.uid };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    acceptInvite: (toSend) => dispatch(acceptInvite(toSend)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AcceptInviteModal);
