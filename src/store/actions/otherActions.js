@@ -75,8 +75,10 @@ export const acceptInvite = (props) => {
             .collection("users")
             .doc(acceptedBy)
             .update({
-              contacts: firebase.firestore.FieldValue.arrayUnion(doc_User, {
+              contacts: firebase.firestore.FieldValue.arrayUnion({
                 ID: acceptedUser,
+                firstName: doc_User.firstName,
+                lastName: doc_User.lastName,
               }),
             })
             .then(() => {
@@ -84,8 +86,10 @@ export const acceptInvite = (props) => {
                 .collection("users")
                 .doc(acceptedUser)
                 .update({
-                  contacts: firebase.firestore.FieldValue.arrayUnion(doc_By, {
+                  contacts: firebase.firestore.FieldValue.arrayUnion({
                     ID: acceptedBy,
+                    firstName: doc_By.firstName,
+                    lastName: doc_By.lastName,
                   }),
                 })
                 .then(() => {
